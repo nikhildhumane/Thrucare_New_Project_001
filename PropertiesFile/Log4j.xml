@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%highlight{%d{HH:mm:ss.SSS} %-5level - %msg%n}{INFO=blue, ERROR=red}"/>
+        </Console>
+        <File name="File" fileName="C:\Users\nikhildhumane\IdeaProjects\ThruCareHealthCare\Logs\\${sys:logFilename}.log" append="false">
+            <PatternLayout>
+                <Pattern>%highlight{%d{HH:mm:ss.SSS} %-5level - %msg%n}{INFO=blue, ERROR=red}</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.sdetadda" level="info" additivity="true">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+</Configuration>
