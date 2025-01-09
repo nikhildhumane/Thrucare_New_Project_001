@@ -4,13 +4,15 @@ import BaseTest.BaseClass;
 import BusinessLogics.GenericMethods;
 import Page_Objects.*;
 import BusinessLogics.PropertiesFileReader;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
 
 
 
 public class TC_001_CreateProvider extends BaseClass {
 
-  @Test
+    @Test()
     public void ProviderLogin() throws Exception {
         test=report.startTest("ProviderLogin");
         setupBrowser("chrome");

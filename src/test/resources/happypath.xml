@@ -3,13 +3,19 @@
 
 <suite name="Provider login">
     <listeners>
-        <listener class-name="BusinessLogics.SuiteListener"/>
-        <listener class-name="BusinessLogics.TestListener"/>
+        <listener class-name="BusinessLogics.Listeners.SuiteListener"/>
+        <listener class-name="BusinessLogics.Listeners.TestListener"/>
+
     </listeners>
 
     <test name="Provider Login through positive ways">
         <classes>
-            <class name="ThrucareTestCases.TC_001_CreateProvider" />
+            <class name="ThrucareTestCases.TC_001_CreateProvider">
+                <!-- Include specific test methods to run -->
+                <methods>
+                    <include name="ProviderLogin"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
