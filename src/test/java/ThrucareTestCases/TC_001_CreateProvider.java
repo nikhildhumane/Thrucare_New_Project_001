@@ -27,6 +27,15 @@ public class TC_001_CreateProvider extends BaseClass {
         GenericMethods.Get_Code_from_yopmail();
         VerificationCodePage.Enter_Code(PropertiesFileReader.data("verificationCode"));
         VerificationCodePage.Click_ConformBtn();
+        ProviderDetailsPage.Enter_FirstName();
+        ProviderDetailsPage.Enter_MiddleName();
+        ProviderDetailsPage.Enter_LastName();
+        ProviderDetailsPage.Enter_DOB();
+        ProviderDetailsPage.Select_Gender("Male");
+        ProviderDetailsPage.Select_Country("India");
+        ProviderDetailsPage.Enter_MobileNumber();
+
+
    }
 }
 

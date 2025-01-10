@@ -71,7 +71,6 @@ public class SignUpPage extends BaseClass {
 
         // Define the Excel file path
         String filePath = "C://Users//nikhildhumane//IdeaProjects//ThruCareHealthCare//src//main//java//BusinessLogics//ExcelData//ThrucareData.xlsx";
-
         // Fetch the username from the Excel file after it has been saved
         ExcelFileReadAndWrite.ExcelReader excelReader = new ExcelFileReadAndWrite.ExcelReader(filePath);
         String userName = excelReader.getCellData("UserLoginDetails", 1, 0);
@@ -80,7 +79,6 @@ public class SignUpPage extends BaseClass {
         if (userName == null || userName.isEmpty()) {
             throw new Exception("Username not found in Excel file");
         }
-
         // Create an email using the fetched username
         String userGmail = userName + "@yopmail.com";
         System.out.println("UGmail = " + userGmail);

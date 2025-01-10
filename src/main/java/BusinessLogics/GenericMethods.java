@@ -6,6 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -71,7 +72,7 @@ public class GenericMethods extends BaseClass {
         }
         else {
 
-            Wait_Element(xpath, 10).sendKeys(value);
+            Wait_Element(xpath, 25).sendKeys(value);
         }
     }
 
@@ -80,9 +81,18 @@ public class GenericMethods extends BaseClass {
     public static void VerifyPageTitleName(String expectedTitle) throws TimeoutException {
 
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
         wait.until(ExpectedConditions.titleIs(expectedTitle));
         System.out.println("Page title verification successful: " + driver.getTitle());
+    }
+
+
+    public static void VerifyPlaceHolderText(WebElement element,String text)
+    {
+        String actualText = element.getAttribute("value");;
+        // Expected text
+        String expectedText =text;
+        Assert.assertEquals(actualText,expectedText);
     }
 
 
@@ -152,7 +162,7 @@ public class GenericMethods extends BaseClass {
        if (xpath == null ) {
            throw new IllegalArgumentException("XPath is null or empty");
        }
-       Wait_Element(xpath,10).click();
+       Wait_Element(xpath,25).click();
 
    }
 
@@ -160,9 +170,6 @@ public class GenericMethods extends BaseClass {
 
 
     public static void Get_Code_from_yopmail() throws IOException, InterruptedException {
-
-
-
 
 
         ((ChromeDriver) driver).executeScript("window.open()");
@@ -173,9 +180,9 @@ public class GenericMethods extends BaseClass {
         driver.manage().window().maximize();
 
 
-        String filePath = "C://Users//nikhildhumane//IdeaProjects//ThruCareHealthCare//src//main//java//BusinessLogics//ExcelData//ThrucareData.xlsx";
+
         // Fetch the username from the Excel file after it has been saved
-        ExcelFileReadAndWrite.ExcelReader excelReader = new ExcelFileReadAndWrite.ExcelReader(filePath);
+        ExcelFileReadAndWrite.ExcelReader excelReader = new ExcelFileReadAndWrite.ExcelReader(ExcelFileLocation);
         String gmail = excelReader.getCellData("UserLoginDetails", 1, 1);
         excelReader.close();
 
@@ -187,30 +194,30 @@ public class GenericMethods extends BaseClass {
         e.clear();
         e.sendKeys(gmail);
 
-        Thread.sleep(10);
+        Thread.sleep(25);
 
         driver.findElement(By.xpath("//i[@class='material-icons-outlined f36']")).click();
-        Thread.sleep(10);
+        Thread.sleep(25);
         driver.findElement(By.xpath("//button[@id='refresh']")).click();
 
-        Thread.sleep(10);
+        Thread.sleep(25);
         driver.switchTo().frame("ifinbox");
         List<WebElement> yopmailElements = driver.findElements(By.xpath("//div[@class='m']"));
         int size=yopmailElements.size();
-        Thread.sleep(10);
+        Thread.sleep(25);
         for (int i = size - 1; i >= 0; i--) {
-            Thread.sleep(10);
+            Thread.sleep(25);
             WebElement yopmailElement = yopmailElements.get(i);
             String yopmailAddress = yopmailElement.getText();
 
-            Thread.sleep(10);
+            Thread.sleep(25);
             // Check for the specific email name
             if (yopmailAddress.contains("no-reply@verificationemail.com")) {
                 yopmailElement.click();
-                Thread.sleep(10);
+                Thread.sleep(25);
                 driver.switchTo().defaultContent();
 
-                driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+                driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
                 driver.switchTo().frame("ifmail");
 
                 Thread.sleep(10);
@@ -231,6 +238,14 @@ public class GenericMethods extends BaseClass {
 
     }
 
+
+
+
+public static void select_DropDown(WebElement element, String text)
+{
+    select =new Select(element);
+    select.selectByVisibleText(text);
+}
 
 
 

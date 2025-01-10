@@ -38,6 +38,8 @@ public class BaseClass {
     public static Select select;
     protected static ExcelFileReadAndWrite.ExcelReader excelReader;
 
+    public static String ExcelFileLocation  ="C://Users//nikhildhumane//IdeaProjects//ThruCareHealthCare//src//main//java//BusinessLogics//ExcelData//ThrucareData.xlsx";
+
     /**
      * Setup browser based on the provided name.
      */
@@ -118,10 +120,10 @@ public class BaseClass {
      */
     @BeforeSuite
     public void beforeSuite() throws IOException {
-        String excelFilePath = "C://Users//nikhildhumane//IdeaProjects//ThruCareHealthCare//src//main//java//BusinessLogics//ExcelData//ThrucareData.xlsx";
+
 
         try {
-            excelReader = new ExcelFileReadAndWrite.ExcelReader(excelFilePath);
+            excelReader = new ExcelFileReadAndWrite.ExcelReader(ExcelFileLocation);
             System.out.println("Excel file loaded successfully.");
         } catch (Exception e) {
             logger.error("Error loading Excel file: ", e);

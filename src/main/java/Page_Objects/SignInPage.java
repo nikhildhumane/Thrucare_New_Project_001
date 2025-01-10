@@ -22,8 +22,8 @@ public class SignInPage extends BaseClass {
     public static void Click_SignUp() throws Exception {
 
         GenericMethods.VerifyPageTitleName(PropertiesFileReader.data("SignIn"));
-        GenericMethods.Wait_Element(SignInPageHeader , 10);
+        GenericMethods.Wait_Element(SignInPageHeader , 25);
         GenericMethods.isElementVisible(SignInPageHeader);
-        GenericMethods.Wait_Element(SignUpLink , 10).click();
+        GenericMethods.Wait_Element(SignUpLink , 25).click();
     }
 }

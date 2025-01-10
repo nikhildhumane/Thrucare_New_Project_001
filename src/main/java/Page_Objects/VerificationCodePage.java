@@ -23,19 +23,28 @@ public class VerificationCodePage extends BaseClass {
                     "//button[normalize-space()='Confirm account']"));
 
 
+
+ /*========================================================================================*/
+
     public static void Enter_Code(String value) throws Exception {
-        GenericMethods.Wait_Element(VerificationCodeHeader , 10);
+        GenericMethods.Wait_Element(VerificationCodeHeader , 25);
         GenericMethods.isElementVisible(VerificationCodeHeader);
 
         GenericMethods.SendkeyMethod(VerificationCode, value);
     }
 
+
+
     public static void Click_ConformBtn() throws Exception {
-        GenericMethods.Wait_Element(ConfirmAccount , 10);
+        GenericMethods.Wait_Element(ConfirmAccount , 25);
         GenericMethods.isElementVisible(ConfirmAccount);
 
-        GenericMethods.Wait_Element(ConfirmAccount , 10).click();
+        GenericMethods.Wait_Element(ConfirmAccount , 25).click();
 
     }
+
+
+
+
 
 }

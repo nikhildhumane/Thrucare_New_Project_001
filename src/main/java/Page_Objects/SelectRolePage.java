@@ -15,7 +15,8 @@ public class SelectRolePage extends BaseClass {
 
     public static WebElement PatientSelectBtn = driver.findElement(By.xpath("//div[h5[normalize-space()='Patient']]//following-sibling::div//button[@type='button'][normalize-space()='Select'][1]"));
 
-    public static WebElement ProviderSelectBtn = driver.findElement(By.xpath("//div[h5[normalize-space()='Provider']]//following-sibling::div//button[@type='button'][normalize-space()='Select'][1]"));
+    public static WebElement ProviderSelectBtn = driver.findElement(By.xpath(
+            "//div[h5[normalize-space()='Provider']]//following-sibling::div//button[@type='button'][normalize-space()='Select'][1]"));
 
 
 
@@ -23,7 +24,7 @@ public class SelectRolePage extends BaseClass {
     public static void Click_ProviderSelect(String inputText) throws Exception
     {
         GenericMethods.VerifyPageTitleName(PropertiesFileReader.data("SelectRoleTitle"));
-        GenericMethods.Wait_Element(PatientRole , 10);
+        GenericMethods.Wait_Element(PatientRole , 25);
         GenericMethods.isElementVisible(PatientRole);
 
         WebElement selectButton;

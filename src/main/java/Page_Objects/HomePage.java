@@ -13,10 +13,14 @@ public class HomePage extends BaseClass {
     public static WebElement SignIn_SignUp = driver.findElement(Signin_Signup);
 
 
+
+
+
+
     public static void Click_SignInSignUP() throws Exception {
-        GenericMethods.Wait_Element(SignIn_SignUp,10);
+        GenericMethods.Wait_Element(SignIn_SignUp,25);
         GenericMethods.isElementVisible(SignIn_SignUp);
-        GenericMethods.Wait_Element(SignIn_SignUp, 10).click();
+        GenericMethods.Wait_Element(SignIn_SignUp, 25).click();
 
     }
 
